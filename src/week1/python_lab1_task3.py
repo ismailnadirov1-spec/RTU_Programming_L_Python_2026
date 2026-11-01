@@ -32,12 +32,37 @@ Examples (these are also used to check your work):
 
 def analyze_sentence(text: str) -> tuple[int, int, bool]:
     """Return (length, word count, contains 'python') for the given text."""
-    # TODO: implement function logic
+    #total character count
+    char_count = len(text)
+
+    #word count
+    words_list = text.split()
+    word_count = len(words_list)
+
+    #has 'python', case sensitive
+    lower_text = text.lower()
+    contains_python = "python" in lower_text
+
+    return (char_count, word_count, contains_python)
     raise NotImplementedError("analyze_sentence() is not implemented yet")
 
 
 if __name__ == "__main__":
     # Keep all input() calls inside this block, otherwise the autograder
     # cannot import your file.
-    # TODO: read sentence from input, call function, and print results
+
+    #examples to check the code
+    print("---Example Checks ---")
+    print(analyze_sentence("I love Python"))
+    print(analyze_sentence("  Hello world  "))
+    print(analyze_sentence("PYTHONIC code!"))
+    print(analyze_sentence(""))
+    print("---------------------\n")
+
+    user_input = input("Enter a sentence: ")
+    chars, words, has_python = analyze_sentence(user_input)
+
+    print(f"Characters: {chars}")
+    print(f"Words: {words}")
+    print(f"Contains 'Python': {has_python}")
     pass
